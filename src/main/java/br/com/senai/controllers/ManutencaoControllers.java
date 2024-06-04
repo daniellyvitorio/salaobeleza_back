@@ -56,7 +56,7 @@ public class ManutencaoControllers {
             Manutencao getManutencao = manutencaoRepository.findById(id).orElseThrow();
             //chamamos p método .delete e passamos o café a ser deletado
             manutencaoRepository.delete(getManutencao);
-            return getManutencao;
+            return  getManutencao;
         }
     }
 

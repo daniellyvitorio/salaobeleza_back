@@ -39,18 +39,18 @@ public class AgendamentoController {
     }
 
     //atualizar cafe
-    @PutMapping(value="/updateAgendamento",
+    @PutMapping(value="/updateAgendamento/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Agendamento updateAgendamento(@RequestBody Agendamento agendamento){
-        Agendamento getAgendamento = agendamentoRepository.findById(agendamento.getId()).orElseThrow();
+    public Agendamento updateAgendamento(@RequestBody Agendamento agendamento, @PathVariable long id){
+        Agendamento getAgendamento = agendamentoRepository.findById(id).orElseThrow();
         Agendamento updateAgendamento = new Agendamento();
 
-        updateAgendamento.setId(agendamento.getId());
+        updateAgendamento.setId(id);
         updateAgendamento.setServico(agendamento.getServico());
-        updateAgendamento.setDescricao(agendamento.getDescricao());
-        updateAgendamento.setData_agendamento(agendamento.getData_agendamento());
-//        updateAgendamento.setHora(agendamento.getHora());
+        updateAgendamento.setDescricao(getAgendamento.getDescricao());
+        updateAgendamento.setData_agendamento(getAgendamento.getData_agendamento());
+//
 
         return  agendamentoRepository.save(updateAgendamento);
     }
@@ -63,6 +63,6 @@ public class AgendamentoController {
         Agendamento getAgendamento = agendamentoRepository.findById(id).orElseThrow();
         //chamamos p método .delete e passamos o café a ser deletado
         agendamentoRepository.delete(getAgendamento);
-        return  getAgendamento;
+        return getAgendamento;
     }
 }

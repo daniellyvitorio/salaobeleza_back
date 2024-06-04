@@ -26,11 +26,4 @@ public class Agendamento  implements Serializable {
 
     @Column(nullable = false)
     private LocalDateTime data_agendamento;
-
-//    @Column(nullable = false)
-//    private Double hora;
-
-//    @OneToOne
-//    @JoinColumn(name="manutencao_id", nullable = true)
-//    private Manutencao manutencao;
 }

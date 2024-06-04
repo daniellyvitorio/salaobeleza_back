@@ -20,6 +20,5 @@ public class Manutencao implements Serializable {
         @OneToOne
         @JoinColumn(name="agendamento_id", nullable = false)
         private Agendamento agendamento;
-
 }
 
